@@ -13,3 +13,4 @@ final class PickTimeState extends HomeState {}
 final class RequestPermissionState extends HomeState {}
 final class ShowNotificationState extends HomeState {}
 final class FetchPendingNotificationsState extends HomeState {}
+final class SetScheduledNotificationsState extends HomeState {}

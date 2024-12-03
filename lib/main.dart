@@ -4,11 +4,18 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tzData;
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:timezone/data/latest.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
 
 import 'Home/View Model/home_cubit.dart';
 import 'Home/View/Home.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  tz.initializeTimeZones();
+
   runApp(const MyApp());
 }
 
@@ -122,7 +129,7 @@ class _NotificationPageState extends State<NotificationPage> {
 
   Future<void> clearAllNotifications() async {
     await localNotifications.cancelAll();
-    fetchPendingNotifications(); // تحديث القائمة بعد حذف كل الإشعارات
+    fetchPendingNotifications();
   }
 
   Future<void> fetchPendingNotifications() async {
